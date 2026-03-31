@@ -1,53 +1,82 @@
-# E-commerce Revenue & Discount Strategy Analysis (Eniac Case Study)
+# E-commerce Discount Strategy Impact Analysis (Eniac Case Study)
 
 ## 🎯 Project Overview
-This project analyses transactional data from an e-commerce company to evaluate the real impact of discount strategies on revenue and profitability. The goal was to validate whether increased sales volume driven by discounts actually leads to business growth.
 
-Using Python (pandas) and data validation techniques, I compared reported revenue with reconstructed order-level revenue and analysed pricing inconsistencies. The results highlight critical gaps between perceived growth and actual financial performance.
+This project investigates whether aggressive discounting strategies in an e-commerce environment genuinely drive sustainable growth or artificially inflate sales volume.
+
+By reconstructing order-level revenue and comparing it with reported financial metrics, the analysis reveals inconsistencies in pricing logic and highlights how discount-driven growth may negatively impact profitability.
 
 ---
 
 ## 📊 Dataset & Sources
-- Source: Internal e-commerce dataset (orders, orderlines, products)
-- Size: 
-  - Orders: ~100k+
-  - Orderlines: ~200k+
-  - Products: ~10k+
-- Key Features:
-  - `order_id`, `created_date`, `total_paid`
-  - `product_id`, `unit_price`, `quantity`
-  - `product_name`, `price`
-- Notes:
-  - Data inconsistencies between product price and transaction price
-  - Missing values and duplicated records handled during cleaning
+
+* Source: Internal e-commerce dataset (orders, orderlines, products, brands)
+* Size:
+
+  * Orders: ~100k+
+  * Orderlines: ~200k+
+  * Products: ~10k+
+
+### Key Fields:
+
+* `order_id`, `created_date`, `total_paid`
+* `sku`, `unit_price`, `product_quantity`
+* `product_name`, `price`
+
+### Data Issues Identified:
+
+* Inconsistent price formatting (e.g. multiple decimal separators)
+* Mismatch between `total_paid` and reconstructed revenue
+* Missing values and duplicated records
 
 ---
 
-## 🚀 Key Findings & Results
+## 🚀 Key Findings
 
-- Discounted products generate higher order volume but reduce overall revenue quality
-- Significant mismatch found between `total_paid` and reconstructed order value (data integrity issue)
-- Some products are consistently sold below listed price → potential margin loss
-- High variability in discount application across categories (no clear strategy)
-- Business Insight:
-  - Revenue growth is partially artificial due to aggressive discounting
-  - Current strategy may increase sales volume but harms profitability
+* Discounts significantly increase order volume but degrade revenue quality and margin potential
+* A large proportion of products are sold below their listed price → systemic discounting pattern
+* Revenue inconsistencies indicate potential data pipeline or reporting issues
+* Discount strategies vary across product categories with no clear optimization logic
+
+---
+
+## 📈 Business Recommendations
+
+* Implement category-specific discount strategies instead of uniform discounting
+* Reduce discount depth for high-demand products (e.g. smartphones)
+* Use accessories and peripherals as controlled promotional drivers
+* Improve data pipeline validation to ensure consistency between transactional and reported revenue
 
 ---
 
 ## 🛠️ Technologies Used
 
 **Programming:**
-- Python
+
+* Python
 
 **Libraries:**
-- pandas
-- numpy
-- matplotlib
+
+* pandas
+* numpy
+* matplotlib
 
 **Environment:**
-- Google Colab / Jupyter Notebook
+
+* Jupyter Notebook / Google Colab
 
 ---
 
 ## 📁 Project Structure
+
+* 01_data_exploration.ipynb – Data understanding and validation
+* 02_data_cleaning.ipynb – Handling missing values and inconsistencies
+* 03_feature_engineering.ipynb – Revenue, discount metrics, categories
+* 04_discount_analysis.ipynb – Pricing behavior and discount impact
+* 05_seasonality_analysis.ipynb – Revenue trends and seasonal patterns
+
+---
+
+## 📌 Conclusion
+
+The analysis demonstrates that while discounting increases short-term sales volume, it may negatively impact long-term profitability. A more targeted and data-driven pricing strategy is required to balance growth and margin sustainability.
